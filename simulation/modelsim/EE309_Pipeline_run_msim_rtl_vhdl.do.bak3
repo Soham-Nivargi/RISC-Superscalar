@@ -1,0 +1,31 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/DUT.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/SE10.vhd}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/SE7.vhd}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/alu1.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/alu2.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/imem.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/dmem.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/registerfiles.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/pc.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/ifid.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/idrr.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/rrex.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/exmem.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/memwb.vhdl}
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/datapath.vhdl}
+
+vcom -93 -work work {D:/study/4th_sem/ee_309/Project_testing/Testbench.vhdl}
+
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L fiftyfivenm -L rtl_work -L work -voptargs="+acc"  Testbench
+
+add wave *
+view structure
+view signals
+run 1 sec

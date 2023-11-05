@@ -1,0 +1,59 @@
+library std;
+use std.standard.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;	 
+use ieee.std_logic_unsigned.all;
+
+entity cz is
+port(
+c: in std_logic;
+z: in std_logic;
+carry: out std_logic;
+zero: out std_logic;
+);
+end pc;
+
+architecture beh of pc is
+
+signal pc1 : std_logic_vector(15 downto 0) := "0000000000000000";
+
+begin
+	
+	process(clock, rst, check)
+		
+	begin
+		
+		if(rst = '1') then
+			
+			pc1 <= "0000000000000000";
+			
+		end if;
+		
+		if(falling_edge(clock)) then
+			
+			if(bubble = '0' and check1 = '0') then
+				
+				if(check = '0') then
+					pc1 <= adder1out;
+				
+				elsif(check = '1') then
+					pc1 <= alu2out;
+				
+				end if;
+			
+			end if;
+			
+		else
+			
+			pc1 <= pc1;
+			
+		end if;
+		
+	end process;
+	
+	pcout <= pc1;
+	
+end beh;

@@ -1,0 +1,40 @@
+library std;
+use std.standard.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;	 
+use ieee.std_logic_unsigned.all;
+
+entity complimentor is
+port(
+k: in std_logic;
+Din: in std_logic_vector(15 downto 0);
+Dout: out std_logic_vector;
+);
+end complimentor;
+
+
+architecture beh of complimentor is
+
+begin
+
+Dout(0) <= k xor Din(0);
+Dout(1) <= k xor Din(1);
+Dout(2) <= k xor Din(2);
+Dout(3) <= k xor Din(3);
+Dout(4) <= k xor Din(4);
+Dout(5) <= k xor Din(5);
+Dout(6) <= k xor Din(6);
+Dout(7) <= k xor Din(7);
+Dout(8) <= k xor Din(8);
+Dout(9) <= k xor Din(9);
+Dout(10) <= k xor Din(10);
+Dout(11) <= k xor Din(11);
+Dout(12) <= k xor Din(12);
+Dout(13) <= k xor Din(13);
+Dout(14) <= k xor Din(14);
+Dout(15) <= k xor Din(15);
+
+end beh;

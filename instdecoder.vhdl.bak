@@ -1,0 +1,29 @@
+library std;
+use std.standard.all;
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_arith.all;	 
+use ieee.std_logic_unsigned.all;
+
+entity instdecoder is
+port(
+inst0: in std_logic_vector(15 downto 0);
+check1: out std_logic_vector(15 downto 0);
+inst1: out std_logic_vector(15 downto 0)
+);
+end instdecoder;
+
+architecture beh of instdecoder is
+
+signal inst11: std_logic_vector(15 downto 0);
+
+	function
+	
+	
+begin
+	
+	
+	
+end instdecoder;
